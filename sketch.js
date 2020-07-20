@@ -7,47 +7,28 @@ function setup() {
 }
 
 function draw() {
+	// iterate 200 times per frame
 	for (let i = 0; i < 200; i++) {
 		drawPoint(pt);
 		pt = nextPoint(pt);
 	}
 }
 
-const f1 = v => {
-	const nextX = 0;
-	const nextY = 0.16 * v.y;
-	return createVector(nextX, nextY);
-};
-
-const f2 = v => {
-	const nextX = 0.85 * v.x + 0.04 * v.y;
-	const nextY = -0.04 * v.x + 0.85 * v.y + 1.6;
-	return createVector(nextX, nextY);
-};
-
-const f3 = v => {
-	const nextX = 0.2 * v.x - 0.26 * v.y;
-	const nextY = 0.23 * v.x + 0.22 * v.y + 1.6;
-	return createVector(nextX, nextY);
-};
-
-const f4 = v => {
-	const nextX = -0.15 * v.x + 0.28 * v.y;
-	const nextY = 0.26 * v.x + 0.24 * v.y + 0.44;
-	return createVector(nextX, nextY);
-};
-
 const nextPoint = v => {
 	const r = random();
 	let next;
 
 	if (r < 0.01) {
+		// 1% chance
 		next = f1(v);
 	} else if (r < 0.86) {
+		// 85% chance
 		next = f2(v);
 	} else if (r < 0.93) {
+		// 7% chance
 		next = f3(v);
 	} else {
+		// 7% chance
 		next = f4(v);
 	}
 
@@ -55,9 +36,13 @@ const nextPoint = v => {
 };
 
 const drawPoint = pt => {
+	// domain of the functions: -2.182 < x < 2.6558
 	const x = map(pt.x, -2.182, 2.6558, 0, width);
+
+	// range of the functions: 0 <= y < 9.9983
 	const y = map(pt.y, 0, 9.9983, height, 0);
 
+	// fill colour based on its x, y location on the canvas
 	const r = map(y, 0, height, 0, 255);
 	const g = map(x, 0, width, 0, 255);
 	const b = map(y, 0, height, 255, 0);
