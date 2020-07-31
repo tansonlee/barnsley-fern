@@ -1,4 +1,4 @@
-# barnsley-fern
+# Barnsley Fern
 
 ### Barnsley Fern generation visualization
 
