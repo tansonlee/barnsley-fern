@@ -2,6 +2,8 @@
 
 ### Barnsley Fern generation visualization
 
+Link to hosted project: [Barnsley Fern](https://tansonlee.github.io/barnsley-fern/)
+
 Made with JavaScript and visualized with the p5.js library
 
 <img src="gif/barnsley-fern.gif" width="400px">
